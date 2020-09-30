@@ -9,7 +9,14 @@ app.use(async (req, res) => {
       await page.goto(req.query.url, {
         waitUntil: 'networkidle2'
       })
-      const pdf = await page.pdf({format: 'A4'})
+      const options: any = {}
+      if (req.query.width && req.query.height) {
+        options.width = req.query.width
+        options.height = req.query.height
+      } else {
+        options.format = 'A4'
+      }
+      const pdf = await page.pdf(options)
       res.set({ 'Content-Type': 'application/pdf', 'Content-Length': pdf.length })
       res.send(pdf)
     } catch (error) {

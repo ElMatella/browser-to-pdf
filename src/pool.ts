@@ -1,7 +1,9 @@
 import * as ResourcePool from 'ts-resource-pool'
 import * as puppeteer from 'puppeteer'
 
-const browserPromise = puppeteer.launch()
+const browserPromise = puppeteer.launch({
+  args: ['--no-sandbox', '--disable-setuid-sandbox']
+})
 
 /**
  * Step 1 - Create pool using a factory object

@@ -13,7 +13,7 @@
     "typescript": "^3.7.5"
   },
   "dependencies": {
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "generic-pool": "^3.7.1",
     "puppeteer": "^2.0.0",
     "ts-resource-pool": "^1.0.0-alpha.5"
